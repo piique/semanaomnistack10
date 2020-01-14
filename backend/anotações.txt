@@ -1,0 +1,7 @@
+instalar JSON view no chrome
+
+
+baixar mongo db compass comunity para fazer alterações direto no banco
+
+
+https://rocketseat.com.br/week-10/aulas
