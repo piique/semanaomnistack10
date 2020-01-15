@@ -65,9 +65,11 @@ module.exports = {
   },
 
   async analise_dados(req, res){
-    console.log(req.body);
+    console.log(req.body.asdasdasdasdasdasd);
 
-    return res.json({ message: 'Dados recebidos com sucesso', dados: req.body });
+
+
+    return res.json({ message: 'Dados recebidos com sucesso' });
 
   }
 
