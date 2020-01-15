@@ -1,5 +1,6 @@
 const axios = require('axios'); // ferramenta para consumir outras api (utilizada para consumir api do github)
 const Dev = require('../models/Dev');
+const parseStringAsArray = require('../utils/parseStringAsArray');
 
 /*  
     index - mostrar lista
@@ -17,7 +18,7 @@ module.exports = {
   },
 
   async store(req, res) {
-    const { github_username, techs, latitude, longitude } = req.body; // recebe techs como string separando cada uma por virgula
+    const { github_username, techs, latitude = 0, longitude = 0 } = req.body; // recebe techs como string separando cada uma por virgula
 
     let dev = await Dev.findOne({ github_username });
     if (dev) {
@@ -29,8 +30,6 @@ module.exports = {
     );
     const { name = login, avatar_url, bio } = apiResponse.data; // name = login - se não existir name, pega valor de login
 
-    const techsArray = techs.split(',').map(tech => tech.trim());
-
     const location = {
       type: 'Point',
       coordinates: [longitude, latitude],
@@ -41,7 +40,7 @@ module.exports = {
       name,
       avatar_url,
       bio,
-      techs: techsArray,
+      techs: parseStringAsArray(techs),
       location,
     });
 
@@ -64,4 +63,12 @@ module.exports = {
     const devs = await Dev.find();
     return res.json(devs);
   },
+
+  async analise_dados(req, res){
+    console.log(req.body);
+
+    return res.json({ message: 'Dados recebidos com sucesso', dados: req.body });
+
+  }
+
 };
