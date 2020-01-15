@@ -8,4 +8,6 @@ https://rocketseat.com.br/week-10/aulas
 video parado aos 1:17:00
 gustavo guanabara - curso em video
 
+
+video para aprender mais sobre backend com node:
 https://www.youtube.com/watch?v=BN_8bCfVp88
