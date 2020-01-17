@@ -63,14 +63,5 @@ module.exports = {
     const devs = await Dev.find();
     return res.json(devs);
   },
-
-  async analise_dados(req, res){
-    console.log(req.body.asdasdasdasdasdasd);
-
-
-
-    return res.json({ message: 'Dados recebidos com sucesso' });
-
-  }
-
+  
 };

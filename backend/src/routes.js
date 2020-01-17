@@ -10,6 +10,4 @@ routes.get('/devs', DevController.index);
 
 routes.get('/search', SearchController.index);
 
-routes.post('/analise_dados', DevController.analise_dados)
-
 module.exports = routes;
