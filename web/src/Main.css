@@ -1,0 +1,20 @@
+main {
+  flex: 1;
+  /* background-color: aqua; */
+}
+
+main ul {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  /* column-gap: 20px; */
+  /* row-gap: 20px; */
+  list-style: none; /* tirar as bolinhas de lista */
+}
+
+@media (max-width: 650px) {
+  main ul {
+    grid-template-columns: 1fr;
+  }
+}
