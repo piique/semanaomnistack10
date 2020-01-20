@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import "./styles.css";
 
-function DevForm({ onSubmit }) {
+function DevForm(props) {
   const [github_username, setGithubUsername] = useState("");
   const [techs, setTechs] = useState("");
   const [latitude, setLatitude] = useState("");
@@ -29,7 +29,7 @@ function DevForm({ onSubmit }) {
   async function handleSubmit(e) {
     e.preventDefault(); // evitar comportamento padrão do form de enviar o usuário para outra tela
 
-    await onSubmit({
+    await props.onSubmit({
       github_username,
       techs,
       latitude,
