@@ -50,3 +50,16 @@ li.dev-item a {
 li.dev-item a:hover {
   color: #5f13e2;
 }
+
+li .delete-user-icon{
+  /* background: #333; */
+  float: right;
+  color: #acacac;
+  
+  /* align-content: flex; */
+  /* margin-left: 40px; */
+}
+
+li .delete-user-icon:hover{
+  background: rgb(235, 232, 232);
+}
