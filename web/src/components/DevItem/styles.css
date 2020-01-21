@@ -61,5 +61,5 @@ li .delete-user-icon{
 }
 
 li .delete-user-icon:hover{
-  background: rgb(235, 232, 232);
+  color: #5a5757;
 }

@@ -35,6 +35,12 @@ function App() {
     setDevs([...devs, response.data]);
   }
 
+  async function handleDeleteDev(data) {
+    const response = await api.delete("/dev", data);
+
+    // setDevs(); // enviar novo array para setDevs sem o dev que foi excluido
+  }
+
   return (
     <div id="app">
       <aside>
