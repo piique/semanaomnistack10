@@ -1,0 +1,1 @@
+yarn global add expo-cli    // linux tem que mudar algo do path
