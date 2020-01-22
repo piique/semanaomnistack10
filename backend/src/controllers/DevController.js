@@ -48,6 +48,7 @@ module.exports = {
   },
 
   async destroy(req, res) {
+    console.log(req.body);
     const { id } = req.body;
 
     const dev = await Dev.findByIdAndDelete(id);
@@ -63,5 +64,4 @@ module.exports = {
     const devs = await Dev.find();
     return res.json(devs);
   },
-  
 };

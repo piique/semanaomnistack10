@@ -36,8 +36,13 @@ function App() {
   }
 
   async function handleDeleteDev(data) {
-    const response = await api.delete("/dev", data);
-
+    console.log(data);
+    const response = await api.delete("/dev", { data: data });
+    // console.log(devs.splice(devs.indexOf(devs.find(e => e._id == data.id)), 1));
+    devs.splice(devs.indexOf(devs.find(e => e._id == data.id)), 1);
+    setDevs(devs);
+    // console.log(response);
+    // window.location.reload(); // solução temporaria
     // setDevs(); // enviar novo array para setDevs sem o dev que foi excluido
   }
 
@@ -51,7 +56,9 @@ function App() {
       <main>
         <ul>
           {devs.map(dev => {
-            return <DevItem key={dev._id} dev={dev} />;
+            return (
+              <DevItem key={dev._id} dev={dev} onDelete={handleDeleteDev} />
+            );
           })}
         </ul>
       </main>

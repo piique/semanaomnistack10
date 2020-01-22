@@ -1,28 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./styles.css";
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from "@material-ui/icons/Delete";
 import { Tooltip, IconButton } from "@material-ui/core";
-import AlertDialog from "../../components/AlertDialog"
+import AlertDialog from "../../components/AlertDialog";
 
-
-function DevItem({ dev }) {
-
-  const functionToTrue = (e) => {
-    console.log(e);
-  }
-
-  const buttonClick = (e) => {
-    AlertDialog.handleClickOpen(e);
+function DevItem({ dev, onDelete }) {
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
     console.log(dev);
-  }
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleConfirm = () => {
+    setOpen(false);
+    onDelete({ id: dev._id });
+  };
 
   return (
     <li key={dev._id} className="dev-item">
-      <AlertDialog question="Deseja excluir dev?" message="Exclusão não poderá ser revertida" functionToTrue={functionToTrue} />
+      <AlertDialog
+        open={open}
+        handleClose={handleClose}
+        handleConfirm={handleConfirm}
+        question="Deseja excluir dev?"
+        message="Exclusão não poderá ser revertida"
+      />
       <Tooltip title="Deletar" className="delete-user-icon">
-        <IconButton onClick={ buttonClick }>
-          <DeleteIcon/>
+        <IconButton onClick={handleClickOpen} open={open}>
+          <DeleteIcon />
         </IconButton>
       </Tooltip>
       <header>
